@@ -8,22 +8,58 @@ using System.Web;
 using System.Web.Mvc;
 using HappyFeetShoeStore.Data;
 using HappyFeetShoeStore.Models;
+using HappyFeetShoeStore.ViewModel;
 
 namespace HappyFeetShoeStore.Controllers
 {
     public class ProductsController : Controller
     {
+        
+
         private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
 
         // GET: Products
-        public ActionResult Index(string category)
+        public ActionResult Index(string category,string search)
         {
+
+            //instanciate a new view model
+            ProductIndexViewModel viewModel = new ProductIndexViewModel();
+
+            //select the product
             var products = db.Products.Include(p => p.Category);
-            if(!String.IsNullOrEmpty(category))
+
+            //perform the search and save the search string to the viewModel
+            if (!String.IsNullOrEmpty(search))
+            {
+                products = products.Where(p => p.Name.Contains(search) ||
+                p.Description.Contains(search) || 
+                p.Category.Name.Contains(search));
+                viewModel.Search = search;
+  
+            }
+
+            ////group search results into categories and count how many items in each category 
+
+            viewModel.CatsWithCount = from matchingProducts in products
+                                      where
+                                      matchingProducts.CategoryID != null
+                                      group matchingProducts by
+                                      matchingProducts.Category.Name into
+                                      catGroup
+                                      select new CategoryWithCount()
+                                      {
+                                          CategoryName = catGroup.Key,
+                                          ProductCount = catGroup.Count()
+                                      };
+
+            var categories = products.OrderBy(p => p.Category.Name).Select(p => p.Category.Name).Distinct();
+            if (!String.IsNullOrEmpty(category))
             {
                 products = products.Where(p => p.Category.Name == category);
             }
-            return View(products.ToList());
+
+            viewModel.Products = products;
+            return View(viewModel);
         }
 
         // GET: Products/Details/5
