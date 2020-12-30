@@ -13,7 +13,7 @@ namespace HappyFeetShoeStore.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202012290315240_InitialDatabase"; }
+            get { return "202012300942576_InitialDatabase"; }
         }
         
         string IMigrationMetadata.Source
