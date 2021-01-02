@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using HappyFeetShoeStore.Data;
 using HappyFeetShoeStore.Models;
 using HappyFeetShoeStore.ViewModel;
+using PagedList;
 
 namespace HappyFeetShoeStore.Controllers
 {
@@ -19,7 +20,7 @@ namespace HappyFeetShoeStore.Controllers
         private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
 
         // GET: Products
-        public ActionResult Index(string category,string search, String sortBy)
+        public ActionResult Index(string category,string search, String sortBy, int? page)
         {
 
             //instanciate a new view model
@@ -56,6 +57,7 @@ namespace HappyFeetShoeStore.Controllers
             if (!String.IsNullOrEmpty(category))
             {
                 products = products.Where(p => p.Category.Name == category);
+                viewModel.Category = category;
             }
             //sort results
             switch(sortBy)
@@ -68,10 +70,23 @@ namespace HappyFeetShoeStore.Controllers
                     products = products.OrderByDescending(p => p.Price);
                     break;
                 default:
+                    products = products.OrderBy(p => p.Name);
                     break;
             }
 
-            viewModel.Products = products;
+            const int PageItems = 3;
+            int currentPage = (page ?? 1);
+            viewModel.Products = products.ToPagedList(currentPage, PageItems);
+            viewModel.Sortby = sortBy;
+            viewModel.Sorts = new Dictionary<string, string>
+            {
+                {"Price low to high","price_lowest" },
+                {"Price high to low","price_highest" }
+            };
+
+            return View(viewModel);
+
+            //viewModel.Products = products;
             viewModel.Sorts = new Dictionary<string, string>
             {
                 {"Price low to high", "price_lowest" },
