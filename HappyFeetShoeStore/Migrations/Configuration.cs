@@ -45,7 +45,7 @@ namespace HappyFeetShoeStore.Migrations
                 new Product{Name = "Sandals", Description="Red leather sandals", Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Womans").ID},
                 new Product{Name = "Sandals", Description="Blue leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Mens").ID},
                 new Product{Name = "Sandals", Description="Pink leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Girls").ID},
-
+                
             };
 
             products.ForEach(c => context.Products.AddOrUpdate(p => p.Name, c));
