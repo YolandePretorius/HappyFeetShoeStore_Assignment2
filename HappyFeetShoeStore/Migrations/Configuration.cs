@@ -7,7 +7,7 @@ namespace HappyFeetShoeStore.Migrations
     using System.Linq;
     using Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HappyFeetShoeStore.ShoeStoreContent.StoreContent>
+    internal sealed class Configuration : DbMigrationsConfiguration<HappyFeetShoeStore.ShoeStoreContent.StoreContent >
     {
         public Configuration()
         {
@@ -29,27 +29,27 @@ namespace HappyFeetShoeStore.Migrations
             //    );
             //
 
-            var categories = new List<Category>
-            {
-                new Category {Name = "Womans"},
-                new Category {Name = "Mens"},
-                new Category {Name = "Boys"},
-                new Category {Name = "Girls"},
-            };
+            //var categories = new List<Category>
+            //{
+            //    new Category {Name = "Womans"},
+            //    new Category {Name = "Mens"},
+            //    new Category {Name = "Boys"},
+            //    new Category {Name = "Girls"},
+            //};
 
-            categories.ForEach(c => context.Categories.AddOrUpdate(p => p.Name, c));
-            context.SaveChanges();
+            //categories.ForEach(c => context.Categories.AddOrUpdate(p => p.Name, c));
+            //context.SaveChanges();
 
-            var products = new List<Product>
-            {
-                new Product{Name = "Sandals", Description="Red leather sandals", Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Womans").ID},
-                new Product{Name = "Sandals", Description="Blue leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Mens").ID},
-                new Product{Name = "Sandals", Description="Pink leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Girls").ID},
+            //var products = new List<Product>
+            //{
+            //    new Product{Name = "Sandals", Description="Red leather sandals", Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Womans").ID},
+            //    new Product{Name = "Sandals", Description="Blue leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Mens").ID},
+            //    new Product{Name = "Sandals", Description="Pink leather sandals",Price=30.00M, CategoryID=categories.Single(c=> c.Name == "Girls").ID},
                 
-            };
+            //};
 
-            products.ForEach(c => context.Products.AddOrUpdate(p => p.Name, c));
-            context.SaveChanges();
+            //products.ForEach(c => context.Products.AddOrUpdate (p => p.Name, c));
+            //context.SaveChanges();
 
         }
     }

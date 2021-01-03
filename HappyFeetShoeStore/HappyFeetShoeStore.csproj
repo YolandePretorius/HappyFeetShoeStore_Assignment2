@@ -182,17 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012300942576_InitialDatabase.cs" />
-    <Compile Include="Migrations\202012300942576_InitialDatabase.Designer.cs">
-      <DependentUpon>202012300942576_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101010055485_Initial.cs" />
-    <Compile Include="Migrations\202101010055485_Initial.Designer.cs">
-      <DependentUpon>202101010055485_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101020356168_productValidation.cs" />
-    <Compile Include="Migrations\202101020356168_productValidation.Designer.cs">
-      <DependentUpon>202101020356168_productValidation.cs</DependentUpon>
+    <Compile Include="Migrations\202101030656464_ProductImages.cs" />
+    <Compile Include="Migrations\202101030656464_ProductImages.Designer.cs">
+      <DependentUpon>202101030656464_ProductImages.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,6 +192,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoeStoreContent\StoreContent.cs" />
     <Compile Include="Startup.cs" />
@@ -290,14 +283,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012300942576_InitialDatabase.resx">
-      <DependentUpon>202012300942576_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101010055485_Initial.resx">
-      <DependentUpon>202101010055485_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101020356168_productValidation.resx">
-      <DependentUpon>202101020356168_productValidation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101030656464_ProductImages.resx">
+      <DependentUpon>202101030656464_ProductImages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
