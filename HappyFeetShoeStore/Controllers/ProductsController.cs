@@ -73,10 +73,11 @@ namespace HappyFeetShoeStore.Controllers
                     products = products.OrderBy(p => p.Name);
                     break;
             }
-
-            const int PageItems = 3;
             int currentPage = (page ?? 1);
-            viewModel.Products = products.ToPagedList(currentPage, PageItems);
+
+            //const int PageItems = 3;
+            //int currentPage = (page ?? 1);
+            viewModel.Products = products.ToPagedList(currentPage, Constants.PageItems);
             viewModel.Sortby = sortBy;
             viewModel.Sorts = new Dictionary<string, string>
             {
@@ -111,7 +112,8 @@ namespace HappyFeetShoeStore.Controllers
         }
 
         // GET: Products/Create
-        public ActionResult Create()
+
+        public ActionResult Upload()
         {
             ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
             return View();
