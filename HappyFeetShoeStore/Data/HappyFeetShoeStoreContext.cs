@@ -22,5 +22,7 @@ namespace HappyFeetShoeStore.Data
         public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.Category> Categories { get; set; }
 
         public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.Product> Products { get; set; }
+
+        public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.ProductImage> ProductImages { get; set; }
     }
 }

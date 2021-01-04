@@ -173,26 +173,20 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductImagesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Data\HappyFeetShoeStoreContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202012300942576_InitialDatabase.cs" />
-    <Compile Include="Migrations\202012300942576_InitialDatabase.Designer.cs">
-      <DependentUpon>202012300942576_InitialDatabase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101010055485_Initial.cs" />
-    <Compile Include="Migrations\202101010055485_Initial.Designer.cs">
-      <DependentUpon>202101010055485_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202101020356168_productValidation.cs" />
-    <Compile Include="Migrations\202101020356168_productValidation.Designer.cs">
-      <DependentUpon>202101020356168_productValidation.cs</DependentUpon>
+    <Compile Include="Migrations\202101030656464_ProductImages.cs" />
+    <Compile Include="Migrations\202101030656464_ProductImages.Designer.cs">
+      <DependentUpon>202101030656464_ProductImages.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -200,6 +194,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShoeStoreContent\StoreContent.cs" />
     <Compile Include="Startup.cs" />
@@ -211,6 +206,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\ProductImages\Thumbnails\black boots.jpg" />
+    <None Include="Content\ProductImages\Thumbnails\red sneakers.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -272,6 +269,11 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\ProductImages\Upload.cshtml" />
+    <Content Include="Views\ProductImages\Delete.cshtml" />
+    <Content Include="Views\ProductImages\Details.cshtml" />
+    <Content Include="Views\ProductImages\Edit.cshtml" />
+    <Content Include="Views\ProductImages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -290,14 +292,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202012300942576_InitialDatabase.resx">
-      <DependentUpon>202012300942576_InitialDatabase.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101010055485_Initial.resx">
-      <DependentUpon>202101010055485_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202101020356168_productValidation.resx">
-      <DependentUpon>202101020356168_productValidation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202101030656464_ProductImages.resx">
+      <DependentUpon>202101030656464_ProductImages.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
