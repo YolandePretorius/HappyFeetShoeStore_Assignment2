@@ -5,16 +5,17 @@ namespace HappyFeetShoeStore.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using HappyFeetShoeStore.Data;
     using Models;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<HappyFeetShoeStore.ShoeStoreContent.StoreContent >
+    internal sealed class Configuration : DbMigrationsConfiguration<HappyFeetShoeStoreContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(HappyFeetShoeStore.ShoeStoreContent.StoreContent context)
+        protected override void Seed(HappyFeetShoeStoreContext context)
         {
             //  This method will be called after migrating to the latest version.
 
