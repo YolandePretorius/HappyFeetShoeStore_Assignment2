@@ -13,7 +13,7 @@ namespace HappyFeetShoeStore.Models
         public int ID { get; set; }
         [Display(Name = "File")]
         [StringLength(100)]
-        [Index(IsUnique=true)]
+        [Index(IsUnique=true)] // make sure files uploaded is unique
         public string FileName { get; set; }
     }
 }

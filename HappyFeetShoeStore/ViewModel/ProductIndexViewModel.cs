@@ -30,7 +30,10 @@ namespace HappyFeetShoeStore.ViewModel
             return allCats;
         }
     }
-}
+
+        public int ID { get; internal set; }
+       
+    }
 
 public class CategoryWithCount
     {

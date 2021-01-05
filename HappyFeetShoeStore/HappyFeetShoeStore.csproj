@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202101050259066_uniqueFileName.Designer.cs">
       <DependentUpon>202101050259066_uniqueFileName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\CreateProductImageMapping.cs" />
+    <Compile Include="Migrations\CreateProductImageMapping.Designer.cs">
+      <DependentUpon>CreateProductImageMapping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -199,10 +203,11 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\ProductImageMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShoeStoreContent\StoreContent.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\ProductIndexViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\HappyFeetShoeStore-2.mdf" />
@@ -304,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101050259066_uniqueFileName.resx">
       <DependentUpon>202101050259066_uniqueFileName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\CreateProductImageMapping.resx">
+      <DependentUpon>CreateProductImageMapping.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

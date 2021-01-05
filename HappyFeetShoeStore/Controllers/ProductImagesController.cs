@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -83,6 +85,23 @@ namespace HappyFeetShoeStore.Controllers
                 if (ModelState.IsValid)
             {
                 db.ProductImages.Add(new ProductImage { FileName = file.FileName });
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch(DbUpdateException ex)
+                {
+                    SqlException innerException = ex.InnerException.InnerException as SqlException;
+                    if(innerException == null && innerException.Number == 2601)
+                    {
+                        ModelState.AddModelError("FileName", "The file" + file.FileName + "already exist in the system, Please delete it and try again if you wish to re-add");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("FileName", "Sorry an error occurred saving the file to disk, please try again");
+                    }
+                    return View();
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -142,6 +161,27 @@ namespace HappyFeetShoeStore.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             ProductImage productImage = db.ProductImages.Find(id);
+            Product product = db.Products.Find(id);
+            var mappings = product.ProductImageMappings.Where(pim => pim.ProductImageID == id);
+            foreach (var mapping in mappings)
+            {
+                //find all mappings for any product containing this image
+                var mappingsToUpdate = db.ProductImageMappings.Where(pim => pim.ProductID ==
+                mapping.ProductID);
+                //for each image in each product change its imagenumber to one lower if it is higher
+                //than the current image
+                foreach (var mappingToUpdate in mappingsToUpdate)
+                {
+                    if (mappingToUpdate.ImageNumber > mapping.ImageNumber)
+                    {
+                        mappingToUpdate.ImageNumber--;
+                    }
+                }
+            }
+
+
+            System.IO.File.Delete(Request.MapPath(Constants.ProductImagePath + productImage.FileName));
+            System.IO.File.Delete(Request.MapPath(Constants.ProductThumbnailPath + productImage.FileName));
             db.ProductImages.Remove(productImage);
             db.SaveChanges();
             return RedirectToAction("Index");

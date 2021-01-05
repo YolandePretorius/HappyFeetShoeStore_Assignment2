@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace HappyFeetShoeStore.Models
 {
@@ -29,5 +30,6 @@ namespace HappyFeetShoeStore.Models
 
         public int? CategoryID { get; set; }
         public virtual Category Category { get; set; }
+        public virtual ICollection<ProductImageMapping> ProductImageMappings { get; set; }
     }
 }
