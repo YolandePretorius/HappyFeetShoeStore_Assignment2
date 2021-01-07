@@ -12,6 +12,6 @@ namespace HappyFeetShoeStore.Models
         public int ProductID { get; set; }
         public int ProductImageID { get; set; }
         public virtual Product Product { get; set; }
-        public virtual  ProductImage ProductImage { get; set; }
+        public virtual ProductImage ProductImage { get; set; }
     }
 }
