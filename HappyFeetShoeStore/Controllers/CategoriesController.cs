@@ -11,11 +11,14 @@ using HappyFeetShoeStore.Models;
 
 namespace HappyFeetShoeStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller
     {
         private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
 
         // GET: Categories
+        [AllowAnonymous]
+
         public ActionResult Index()
         {
             return View(db.Categories.OrderBy(c=>c.Name).ToList());

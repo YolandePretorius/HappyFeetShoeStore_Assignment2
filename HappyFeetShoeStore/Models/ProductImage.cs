@@ -16,5 +16,6 @@ namespace HappyFeetShoeStore.Models
         [Index(IsUnique=true)] // make sure files uploaded is unique
         public string FileName { get; set; }
         //public IEnumerable<ProductImageMapping> ProductImageMappings { get; internal set; }
+        public virtual ICollection<ProductImageMapping> ProductImageMappings { get; set; }
     }
 }
