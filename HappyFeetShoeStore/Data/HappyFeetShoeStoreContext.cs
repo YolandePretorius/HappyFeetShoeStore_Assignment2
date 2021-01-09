@@ -25,5 +25,7 @@ namespace HappyFeetShoeStore.Data
 
         public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.ProductImage> ProductImages { get; set; }
         public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.ProductImageMapping> ProductImageMappings { get; set; }
+
+        public System.Data.Entity.DbSet<HappyFeetShoeStore.ViewModel.EditUserViewModel> EditUserViewModels { get; set; }
     }
 }

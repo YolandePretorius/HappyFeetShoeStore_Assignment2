@@ -13,6 +13,7 @@ using PagedList;
 
 namespace HappyFeetShoeStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
         
@@ -20,6 +21,7 @@ namespace HappyFeetShoeStore.Controllers
         private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
 
         // GET: Products
+        [AllowAnonymous]
         public ActionResult Index(string category,string search, String sortBy, int? page)
         {
 
@@ -85,7 +87,7 @@ namespace HappyFeetShoeStore.Controllers
                 {"Price high to low","price_highest" }
             };
 
-            return View(viewModel);
+          
 
             //viewModel.Products = products;
             viewModel.Sorts = new Dictionary<string, string>
@@ -97,6 +99,7 @@ namespace HappyFeetShoeStore.Controllers
         }
 
         // GET: Products/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -171,20 +174,6 @@ namespace HappyFeetShoeStore.Controllers
             return View(viewModel);
         }
 
-
-
-        //public ActionResult Create([Bind(Include = "ID,Name,Description,Price,CategoryID")] Product product)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.Products.Add(product);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-
-        //    ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", product.CategoryID);
-        //    return View(product);
-        //}
 
         // GET: Products/Edit/5
         public ActionResult Edit(int? id)
@@ -287,19 +276,6 @@ namespace HappyFeetShoeStore.Controllers
             return View(viewModel);
         }
 
-    
-
-    //public ActionResult Edit([Bind(Include = "ID,Name,Description,Price,CategoryID")] Product product)
-    //{
-    //    if (ModelState.IsValid)
-    //    {
-    //        db.Entry(product).State = EntityState.Modified;
-    //        db.SaveChanges();
-    //        return RedirectToAction("Index");
-    //    }
-    //    ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", product.CategoryID);
-    //    return View(product);
-    //}
 
     // GET: Products/Delete/5
     public ActionResult Delete(int? id)

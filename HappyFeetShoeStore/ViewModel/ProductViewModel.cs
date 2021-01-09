@@ -9,7 +9,7 @@ namespace HappyFeetShoeStore.ViewModel
 {
     public class ProductViewModel
     {
-
+        [Key]
         public int ID { get; set; }
 
         [Required(ErrorMessage = "The Product name cannot be blank")]
