@@ -7,13 +7,13 @@ namespace HappyFeetShoeStore.Migrations.StoreConfiguration
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class twocontextreset : IMigrationMetadata
+    public sealed partial class AddBasketLine : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(twocontextreset));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBasketLine));
         
         string IMigrationMetadata.Id
         {
-            get { return "202101072352292_twocontextreset"; }
+            get { return "202101100031523_AddBasketLine"; }
         }
         
         string IMigrationMetadata.Source
