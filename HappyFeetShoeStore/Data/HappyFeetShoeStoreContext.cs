@@ -29,5 +29,7 @@ namespace HappyFeetShoeStore.Data
         public System.Data.Entity.DbSet<HappyFeetShoeStore.ViewModel.EditUserViewModel> EditUserViewModels { get; set; }
 
         public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.BasketLine> BasketLines { get; set; }
+        public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.Order> Orders { get; set; }
+        public System.Data.Entity.DbSet<HappyFeetShoeStore.Models.OrderLine> OrderLines { get; set; }
     }
 }
