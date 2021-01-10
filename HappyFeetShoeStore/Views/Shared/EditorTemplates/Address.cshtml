@@ -4,14 +4,14 @@
     ViewBag.Title = "Address";
 }
 
-<h2>ViewBag.Title</h2>
-
+<h2>@ViewBag.Title</h2>
+<hr/>
 <div class="form-group">
     @Html.LabelFor(model => model.AddressLine1, htmlAttributes: new
     {
         @class = "control-label col - md - 2"
     })
-    <div class="col-md-10">
+    <div class="col-md-0">
         @Html.EditorFor(model => model.AddressLine1, new
         {
             htmlAttributes = new
@@ -31,7 +31,7 @@
     {
         @class = "control-label col - md - 2"
     })
-    <div class="col-md-10">
+    <div class="col-md-0">
         @Html.EditorFor(model => model.AddressLine2, new
         {
             htmlAttributes = new
@@ -48,8 +48,8 @@
 <div class="form-group">
     @Html.LabelFor(model => model.Town, htmlAttributes: new
     {
-        @class = "control-label col-md-2" })
-    <div class="col-md-10">
+        @class = "control-label col-md - 2" })
+    <div class="col-md-0">
         @Html.EditorFor(model => model.Town, new
         {
             htmlAttributes = new
@@ -62,7 +62,7 @@
     @Html.LabelFor(model => model.County, htmlAttributes: new
     {
         @class = "control-label col- md - 2" })
-    <div class="col-md-10">
+    <div class="col-md-0">
         @Html.EditorFor(model => model.County, new
         {
             htmlAttributes = new
@@ -78,7 +78,7 @@
     @Html.LabelFor(model => model.Postcode, htmlAttributes: new
     {
         @class = "control-label col-md - 2" })
-    <div class="col-md-10">
+    <div class="col-md-0">
         @Html.EditorFor(model => model.Postcode, new
         {
             htmlAttributes = new
