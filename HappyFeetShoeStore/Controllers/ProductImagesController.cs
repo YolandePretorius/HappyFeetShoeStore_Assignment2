@@ -152,7 +152,7 @@ namespace HappyFeetShoeStore.Controllers
                         ModelState.AddModelError("FileName", "Sorry an error has occurred saving to the database, please try again");
                         return View();
                 }
-                        return RedirectToAction("Index");
+                 return RedirectToAction("Index");
 
             }
 

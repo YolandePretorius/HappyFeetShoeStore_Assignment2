@@ -160,7 +160,14 @@ namespace HappyFeetShoeStore.Controllers
             if (ModelState.IsValid)
             {
                 db.Products.Add(product);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
+                }
                 return RedirectToAction("Index");
             }
 

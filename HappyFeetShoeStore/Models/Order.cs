@@ -22,6 +22,6 @@ namespace HappyFeetShoeStore.Models
         public decimal TotalPrice { get; set; }
         [Display(Name = "Time of Order")]
         public DateTime DateCreated { get; set; }
-        public List<OrderLine> OrderLines { get; set; }
+        public ICollection<OrderLine> OrderLines { get; set; }
     }
 }
