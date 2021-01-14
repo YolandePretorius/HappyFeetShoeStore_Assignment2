@@ -137,6 +137,7 @@ namespace HappyFeetShoeStore.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Order order = db.Orders.Include(o => o.OrderLines).Where(o => o.OrderID == id).SingleOrDefault();
+
             if (order == null)
             {
                 return HttpNotFound();
