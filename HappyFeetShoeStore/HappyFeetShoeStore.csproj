@@ -220,6 +220,7 @@
     <Compile Include="ViewModel\AdminViewModel.cs" />
     <Compile Include="ViewModel\BasketSummaryViewModel.cs" />
     <Compile Include="ViewModel\BasketViewModel.cs" />
+    <Compile Include="ViewModel\BestSellersViewModel.cs" />
     <Compile Include="ViewModel\ProductIndexViewModel.cs" />
     <Compile Include="ViewModel\ProductViewModel.cs" />
   </ItemGroup>
@@ -240,6 +241,8 @@
     <Content Include="Content\ProductImages\Thumbnails\black boots.jpg" />
     <None Include="Content\ProductImages\Thumbnails\red sneakers.jpg" />
     <Content Include="Content\ProductImages\Thumbnails\brownboots.jpg" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\Store.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

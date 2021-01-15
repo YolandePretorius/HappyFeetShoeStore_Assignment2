@@ -8,10 +8,10 @@ namespace HappyFeetShoeStore.Models
 {
     public class Basket
     {
-        
-            private string BasketID { get; set; }
-            private const string BasketSessionKey = "BasketID";
-            private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
+
+        private string BasketID { get; set; }
+        private const string BasketSessionKey = "BasketID";
+        private HappyFeetShoeStoreContext db = new HappyFeetShoeStoreContext();
 
         private string GetBasketID()
         {
@@ -157,6 +157,29 @@ namespace HappyFeetShoeStore.Models
                 db.SaveChanges();
             }
             HttpContext.Current.Session[BasketSessionKey] = userName;
+        }
+
+        internal decimal CreateOrderLines(int orderID)
+        {
+            decimal orderTotal = 0;
+            var basketLines = GetBasketLines();
+            foreach (var item in basketLines)
+            {
+                OrderLine orderLine = new OrderLine
+                {
+                    Product = item.Product,
+                    ProductID = item.ProductID,
+                    ProductName = item.Product.Name,
+                    Quantity = item.Quantity,
+                    UnitPrice = item.Product.Price,
+                    OrderID = orderID
+                };
+                orderTotal += (item.Quantity * item.Product.Price);
+                db.OrderLines.Add(orderLine);
+            }
+            db.SaveChanges();
+            EmptyBasket();
+            return orderTotal;
         }
     }
 }

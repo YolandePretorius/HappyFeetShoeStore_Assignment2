@@ -9,6 +9,7 @@ namespace HappyFeetShoeStore.Models
         public int? ProductID { get; set; }
         public int Quantity { get; set; }
         public string ProductName { get; set; }
+
         [Display(Name = "Unit Price")]
         [DataType(DataType.Currency)]
         [DisplayFormat(DataFormatString = "{0:c}")]
