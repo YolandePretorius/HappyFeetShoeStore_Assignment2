@@ -45,7 +45,7 @@ namespace HappyFeetShoeStore.Controllers
         }
 
         // GET: Orders
-        public ActionResult Index(string orderSearch, string startDate, string endDate, string orderSortOrder)
+        public async Task<ActionResult> Index(string orderSearch, string startDate, string endDate, string orderSortOrder, int? page)
         {
             var orders = db.Orders.OrderBy(o => o.DateCreated).Include(o => o.OrderLines);
             if (!User.IsInRole("Admin"))
@@ -98,8 +98,11 @@ namespace HappyFeetShoeStore.Controllers
                     orders = orders.OrderByDescending(o => o.DateCreated);
                     break;
             }
+            int currentPage = (page ?? 1);
+            var currentPageOfOrders = await orders.Skip((currentPage - 1) *
+            Constants.PageItems).Take(Constants.PageItems).ToListAsync();
 
-            return View(orders);
+            return View(currentPageOfOrders);
 
         }
             // GET: Orders/Review 
@@ -136,6 +139,7 @@ namespace HappyFeetShoeStore.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Order order = db.Orders.Include(o => o.OrderLines).Where(o => o.OrderID == id).SingleOrDefault();
 
             if (order == null)
@@ -170,10 +174,16 @@ namespace HappyFeetShoeStore.Controllers
                 order.DateCreated = DateTime.Now;
                 db.Orders.Add(order);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                //add the orderlines to the database after creating the order
+                Basket basket = Basket.GetBasket();
+                order.TotalPrice = basket.CreateOrderLines(order.OrderID);
+                db.SaveChanges();
+                return RedirectToAction("Details", new { id = order.OrderID });
             }
 
-            return View(order);
+
+            return RedirectToAction("Review");
+
         }
 
         // GET: Orders/Edit/5

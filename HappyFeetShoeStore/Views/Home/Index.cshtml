@@ -1,31 +1,77 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model IEnumerable<HappyFeetShoeStore.ViewModel.BestSellersViewModel>
+@{
+    ViewBag.Title = "Happy Feet Shoe Store";
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">Selling shoes since 1980.</p>
+    @*<h2>Here is a selection of our best selling products</h2>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                @if (item.ProductImage != null)
+                {
+                    <a href="@Url.Action("Details", "Products", new { id = item.Product.ID})">
+                        <img src="@(Url.Content(Constants.ProductImagePath) + item.ProductImage)">
+                    </a>
+                }
+                <p>
+                    @Html.ActionLink(item.Product.Name, "Details", "Products", new { id = item.Product.ID }, null)
+                </p>
+            </div>
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Shop Now", "Index", "Products", null, new
+        {
+            @class = "btn btnprimary- lg"
+        })
+    </p>*@
 </div>
 
+<h2>Here is a selection of our best selling products</h2>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            @if (item.ProductImage != null)
+            {
+                <a href="@Url.Action("Details", "Products", new { id = item.Product.ID})">
+                    <img src="@(Url.Content(Constants.ProductImagePath) + item.ProductImage)">
+                </a>
+            }
+            <p>
+                @Html.ActionLink(item.Product.Name, "Details", "Products", new { id = item.Product.ID }, null)
+            </p>
+        </div>
+    }
 </div>
+<p>
+    @Html.ActionLink("Shop Now", "Index", "Products", null, new
+    {
+        @class = "btn btnprimary- lg"
+    })
+</p>
+
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Quality</h2>
+            <p>
+                We are ISO assured. Quality is our priority.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Customer Services</h2>
+            <p>Visit any of our stores locally situated to come in for a fitting.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Custom made shoes</h2>
+            <p>We can help you with custom made shoes that will fit like a glove.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
