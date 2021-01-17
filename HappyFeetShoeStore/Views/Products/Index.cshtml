@@ -9,6 +9,7 @@
 <p>
     @(String.IsNullOrWhiteSpace(Model.Search) ? "Showing all" : "You search for" + Model.Search + "Found") @Model.Products.TotalItemCount products
     <br />
+    <br/>
     @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
         @Html.ActionLink("Create New", "Create")
