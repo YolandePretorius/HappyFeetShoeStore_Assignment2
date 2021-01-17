@@ -7,29 +7,6 @@
 
     <h1>@ViewBag.Title</h1>
     <p class="lead">Selling shoes since 1980.</p>
-    @*<h2>Here is a selection of our best selling products</h2>
-    <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-3">
-                @if (item.ProductImage != null)
-                {
-                    <a href="@Url.Action("Details", "Products", new { id = item.Product.ID})">
-                        <img src="@(Url.Content(Constants.ProductImagePath) + item.ProductImage)">
-                    </a>
-                }
-                <p>
-                    @Html.ActionLink(item.Product.Name, "Details", "Products", new { id = item.Product.ID }, null)
-                </p>
-            </div>
-        }
-    </div>
-    <p>
-        @Html.ActionLink("Shop Now", "Index", "Products", null, new
-        {
-            @class = "btn btnprimary- lg"
-        })
-    </p>*@
 </div>
 
 <h2>Here is a selection of our best selling products</h2>
@@ -56,22 +33,3 @@
     })
 </p>
 
-
-@*<div class="row">
-        <div class="col-md-4">
-            <h2>Quality</h2>
-            <p>
-                We are ISO assured. Quality is our priority.
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Customer Services</h2>
-            <p>Visit any of our stores locally situated to come in for a fitting.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Custom made shoes</h2>
-            <p>We can help you with custom made shoes that will fit like a glove.</p>
-            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-        </div>
-    </div>*@
