@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<HappyFeetShoeStore.Models.ProductImage>
 
 @{
-    ViewBag.Title = "Upload New Image";
+    ViewBag.Title = " Images";
 }
 
 <h2>@ViewBag.Title</h2>
 
-<p>
+<h2>
     @Html.ActionLink("Upload New Image", "Upload")
-</p>
+</h2>
 <table class="table">
     <tr>
         <th>
@@ -30,8 +30,8 @@
         }
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |*@
+        @*@Html.ActionLink("Details", "Details", new { id = item.ID })*@ 
         @Html.ActionLink("Delete", "Delete", new { id = item.ID })
     </td>
 </tr>
