@@ -15,8 +15,8 @@ namespace HappyFeetShoeStore.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "The product description cannot be blank")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "Please enter a product name between 3 and 50 characters in length")]
-        [RegularExpression(@"^[a-zA-Z0-9'-'\s]*$", ErrorMessage = "Please enter a product name between 3 made up of letters and numbers only")]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Please enter a product description between 3 and 50 characters in length")]
+        [RegularExpression(@"^[a-zA-Z0-9'-'\s]*$", ErrorMessage = "Please enter a product description between 3 made up of letters and numbers only")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 

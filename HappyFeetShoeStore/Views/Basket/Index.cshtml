@@ -11,13 +11,17 @@
         @using (Html.BeginForm("UpdateBasket", "Basket"))
         {
             @Html.AntiForgeryToken();
-            <input class="btn btn-sm btn-success" type="submit" value="Update Basket" />
+            <input class="a.btn btn-success" type="submit" value="Update Basket" />
             <hr />
             <div class="row floated-cols">
                 <div class="col-md-4"><label>Item</label></div>
                 <div class="col-md-3"><label>Quantity</label></div>
                 <div class="col-md-1"><label>Price</label></div>
                 <div class="col-md-1"><label>Subtotal</label></div>
+                <br/>
+                <br/>
+             
+            
             </div>
             <hr />
             for (int i = 0; i < Model.BasketLines.Count; i++)
@@ -66,6 +70,7 @@
         }
         <div class="row floated-cols">
             <div class="col-md-8">
+                <br/>
                 @Html.DisplayNameFor(model => model.TotalCost)
             </div>
             <div class="col-md-1">
@@ -74,7 +79,7 @@
             <div class="col-md-1">
                 @Html.ActionLink("Order Now", "Review", "Orders", null, new
                 {
-                    @class = "btn btn - sm btn - success"
+                    @class = "a-btn .btn - success"
                 })
             </div>
         </div>
@@ -85,6 +90,7 @@ else
     <p>Your Basket is empty</p>
 }
 <div>
+    <br/>
     @Html.ActionLink("Continue Shopping", "Index", "Products")
 </div>
 @section Scripts {

@@ -36,8 +36,10 @@
 </div>
 <div class="container">
     <div class="row">
+        <br/>
         <h4>Roles this user belongs to:</h4>
     </div>
+    <br/>
     @if (ViewBag.RoleNames.Count == 0)
     {
         <hr />
@@ -51,6 +53,7 @@
     }
 </div>
 <p>
+    <br/>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p> 

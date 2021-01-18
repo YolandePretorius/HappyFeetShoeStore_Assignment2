@@ -12,7 +12,8 @@ namespace HappyFeetShoeStore.Models
         [Required]
         public string Town { get; set; }
         [Required]
-        public string County { get; set; }
+        [Display(Name = "Country")]
+        public string County { get; set; } //spelling error needs to be country
         [Required]
         public string Postcode { get; set; }
     }
