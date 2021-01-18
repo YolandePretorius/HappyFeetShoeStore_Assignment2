@@ -42,11 +42,11 @@
 }
 
 html {
-    animation: fadeIn 2s;
-    -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s; /* Firefox < 16 */
-    -ms-animation: fadein 2s; /*Internet Explorer */
-    -o-animation: fadein 2s; /* Opera < 12.1 */
+    animation: fadeIn 1s;
+    -webkit-animation: fadein 1s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 1s; /* Firefox < 16 */
+    -ms-animation: fadein 1s; /*Internet Explorer */
+    -o-animation: fadein 1s; /* Opera < 12.1 */
 }
 
 /*Start changing styles*/
@@ -74,7 +74,7 @@ h1, h2 {
 }
 
 html {
-    animation: fadeIn 2s;
+    animation: fadeIn 1s;
 }
 
 body {
@@ -120,8 +120,9 @@ img {
 }
 
 a, a:visited {
-    color: rgb(14, 117, 204);
+    color: dodgerblue;
     text-decoration: none;
+    
 }
 
     a:hover {
@@ -129,15 +130,16 @@ a, a:visited {
         text-decoration: underline;
     }
 
-    a.btn, .btn{
+    a.btn, .btn {
+        background-color: floralwhite;
         border-radius: 3px;
-        color: #ffffff;
-        text-decoration: none;
+        color: dodgerblue;
         border: 2px outset buttonface;
     }
 
     a.btn-primary, .btn-default, .btn-primary {
-        background-color: powderblue;
+        background-color: floralwhite;
+        color: dodgerblue;
         border: 2px outset buttonface;
     }
 
@@ -384,8 +386,8 @@ th {
         }
 
 .active a {
-    background-color: lightsteelblue;
-    color: snow;
+    background-color: floralwhite;
+    color: dodgerblue;
     text-decoration: none;
 }
 h2 + a, h2 + p > a {
@@ -456,8 +458,9 @@ a.navbar-brand {
 }
 
 .nav li a:hover {
-    background-color: lightskyblue;
-    border: 1px solid orange;
+    background-color: floralwhite;
+    color: dodgerblue;
+    border: 1px solid black;
     transform: scale(1.1);
     text-decoration: none;
 }

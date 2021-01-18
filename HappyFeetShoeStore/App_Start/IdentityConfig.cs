@@ -157,7 +157,7 @@ namespace HappyFeetShoeStore
                     {
                         AddressLine1 = "1 Admin Street",
                         Town = "Town",
-                        County = "County",
+                        County = "Country",
                         Postcode = "PostCode"
                     }
                 };

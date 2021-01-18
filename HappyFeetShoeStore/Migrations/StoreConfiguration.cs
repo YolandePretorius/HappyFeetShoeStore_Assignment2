@@ -55,23 +55,23 @@ namespace HappyFeetShoeStore.Migrations.StoreConfiguration
             var orders = new List<Order>
              {
                  new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street",
-                 Town="Town1", County="County", Postcode="PostCode" }, TotalPrice=4.99M,
+                 Town="Town1", County="Country", Postcode="PostCode" }, TotalPrice=4.99M,
                  UserID="admin@example.com", DateCreated=new DateTime(2014, 1, 1) ,
                  DeliveryName="Admin" },
                  new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street",
-                 Town="Town1", County="County", Postcode="PostCode" }, TotalPrice=2.99M,
+                 Town="Town1", County="Country", Postcode="PostCode" }, TotalPrice=2.99M,
                  UserID="admin@example.com", DateCreated=new DateTime(2014, 1, 2) ,
                  DeliveryName="Admin" },
                  new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street",
-                 Town="Town1", County="County", Postcode="PostCode" }, TotalPrice=1.99M,
+                 Town="Town1", County="Country", Postcode="PostCode" }, TotalPrice=1.99M,
                  UserID="admin@example.com", DateCreated=new DateTime(2014, 1, 3) ,
                  DeliveryName="Admin" },
                  new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street",
-                 Town="Town1", County="County", Postcode="PostCode" }, TotalPrice=24.99M,
+                 Town="Town1", County="Country", Postcode="PostCode" }, TotalPrice=24.99M,
                  UserID="admin@example.com", DateCreated=new DateTime(2014, 1, 4) ,
                  DeliveryName="Admin" },
                  new Order { DeliveryAddress = new Address { AddressLine1="1 Some Street",
-                 Town="Town1", County="County", Postcode="PostCode" }, TotalPrice=8.99M,
+                 Town="Town1", County="Country", Postcode="PostCode" }, TotalPrice=8.99M,
                  UserID="admin@example.com", DateCreated=new DateTime(2014, 1, 5) ,
                  DeliveryName="Admin" }
              };
